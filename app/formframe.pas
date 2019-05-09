@@ -1629,7 +1629,8 @@ var
 begin
   ada:= Adapter[Ed];
   if Assigned(ada.Lexer) then
-    if not ada.Stop then exit;
+     ada.Stop;
+   // if not ada.Stop then exit; //AlekXL:stupid
 
   if IsFileTooBigForLexer(GetFileName(Ed)) then
   begin

@@ -622,9 +622,10 @@
           </Other>
         </CompilerOptions>
       </Item14>
-      <Item15 Name="linux x32 gtk2 RLS">
-        <MacroValues Count="1">
+      <Item15 Name="lin-32-gtk2-RLS">
+        <MacroValues Count="2">
           <Macro6 Name="FULLSPEED" Value="true"/>
+          <Macro8 Name="ProfileParser" Value="true"/>
         </MacroValues>
         <CompilerOptions>
           <Version Value="11"/>
@@ -637,6 +638,18 @@
             <OtherUnitFiles Value="..\comp"/>
             <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
+          <Conditionals Value="if defined(ProfileParser) then
+CustomOptions:=CustomOptions + &apos; -pg &apos;;
+
+// example for adding linker options on Mac OS X
+//if TargetOS=&apos;darwin&apos; then
+//  LinkerOptions := &apos; -framework OpenGL&apos;;
+
+// example for adding a unit and include path on Windows
+//if SrcOS=&apos;win&apos; then begin
+//  UnitPath += &apos;;win&apos;;
+//  IncPath += &apos;;win&apos;;
+//end;"/>
           <Parsing>
             <SyntaxOptions>
               <IncludeAssertionCode Value="True"/>
@@ -712,14 +725,15 @@
           </Other>
         </CompilerOptions>
       </Item16>
-      <SharedMatrixOptions Count="7">
+      <SharedMatrixOptions Count="8">
         <Item1 ID="768150883430" Modes="linux x64 qt4" Type="IDEMacro" MacroName="LCLWidgetType" Value="qt"/>
         <Item2 ID="728289161338" Modes="macos x32 carbon" Type="IDEMacro" MacroName="LCLWidgetType" Value="carbon"/>
         <Item3 ID="308953563203" Modes="macos x64 cocoa" Type="IDEMacro" MacroName="LCLWidgetType" Value="cocoa"/>
         <Item4 ID="619430612971" Modes="linux x64 qt5" Type="IDEMacro" MacroName="LCLWidgetType" Value="qt5"/>
         <Item5 ID="028184365614" Modes="linux x64 gtk3" Type="IDEMacro" MacroName="LCLWidgetType" Value="gtk3"/>
-        <Item6 ID="263768771023" Modes="linux x32 gtk2 RLS,linux x64 gtk2 RLS" Type="IDEMacro" MacroName="FULLSPEED" Value="true"/>
+        <Item6 ID="263768771023" Modes="lin-32-gtk2-RLS,linux x64 gtk2 RLS" Type="IDEMacro" MacroName="FULLSPEED" Value="true"/>
         <Item7 ID="199497105583" Modes="linux x64 gtk2,linux x32 gtk2" Type="IDEMacro" MacroName="UseLogger" Value="true"/>
+        <Item8 ID="067675805238" Modes="lin-32-gtk2-RLS" Type="IDEMacro" MacroName="ProfileParser" Value="true"/>
       </SharedMatrixOptions>
     </BuildModes>
     <PublishOptions>
